@@ -190,7 +190,17 @@ async function baseLoginConnect(
     launchOptions.args = options.args
   }
 
-  const browser = await puppeteer.launch(launchOptions)
+  let browser = null
+  if (options.useBrowserstack) {
+    browser = await puppeteer.connect({
+      browserWSEndpoint: `wss://cdp.browserstack.com/puppeteer?caps=${encodeURIComponent(
+        JSON.stringify(options.browserstackOptions)
+      )}`,
+      headless: !!options.headless
+    })
+  } else {
+    browser = await puppeteer.launch(launchOptions)
+  }
   let page = await browser.newPage()
   let originalPageIndex = 1
   await page.setViewport({width: 1280, height: 800})
