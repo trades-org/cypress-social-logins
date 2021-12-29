@@ -195,10 +195,7 @@ async function baseLoginConnect(
 
   let browser = null
   if (options.connectToExternalBrowser) {
-    browser = await puppeteer.connect({
-      ...options.connectOptions,
-      headless: !!options.headless
-    })
+    browser = await puppeteer.connect(options.connectOptions)
   } else {
     browser = await puppeteer.launch(launchOptions)
   }
