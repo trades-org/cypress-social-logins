@@ -194,17 +194,14 @@ async function baseLoginConnect(
   }
 
   let browser = null
-  if (options.useBrowserstack) {
+  if (options.connectToExternalBrowser) {
     browser = await puppeteer.connect({
-      browserWSEndpoint: `wss://cdp.browserstack.com/puppeteer?caps=${encodeURIComponent(
-        JSON.stringify(options.browserstackOptions)
-      )}`,
+      ...options.connectOptions,
       headless: !!options.headless
     })
   } else {
     browser = await puppeteer.launch(launchOptions)
   }
-  let page = await browser.newPage()
   let originalPageIndex = 1
   await page.setViewport({width: 1280, height: 800})
   await page.setExtraHTTPHeaders({
