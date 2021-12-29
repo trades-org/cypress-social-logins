@@ -84,6 +84,7 @@ async function login({page, options} = {}) {
 }
 
 async function getCookies({page, options} = {}) {
+  await delay(3000)
   await page.waitForSelector(options.postLoginSelector)
 
   const cookies = options.getAllBrowserCookies

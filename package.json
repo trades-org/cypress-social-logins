@@ -1,6 +1,6 @@
 {
-  "name": "cypress-social-logins",
-  "version": "0.0.0-development",
+  "name": "@trades-org/cypress-social-logins",
+  "version": "1.0.0",
   "description": "cypress authentication flows using social network providers",
   "main": "src/index.js",
   "engines": {
@@ -194,5 +194,8 @@
         }
       ]
     }
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
