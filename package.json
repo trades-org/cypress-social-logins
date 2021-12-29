@@ -1,6 +1,6 @@
 {
   "name": "@trades-org/cypress-social-logins",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "cypress authentication flows using social network providers",
   "main": "src/index.js",
   "engines": {
