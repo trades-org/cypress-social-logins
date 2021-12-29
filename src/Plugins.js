@@ -84,6 +84,8 @@ async function login({page, options} = {}) {
 }
 
 async function getCookies({page, options} = {}) {
+  const url = await page.url()
+  console.log(url)
   await delay(3000)
   await page.waitForSelector(options.postLoginSelector)
 
