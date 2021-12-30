@@ -199,6 +199,7 @@ async function baseLoginConnect(
   } else {
     browser = await puppeteer.launch(launchOptions)
   }
+  let page = await browser.newPage()
   let originalPageIndex = 1
   await page.setViewport({width: 1280, height: 800})
   await page.setExtraHTTPHeaders({
